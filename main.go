@@ -18,6 +18,10 @@ func main() {
 	e.GET("/", func(c echo.Context) error {
 		return c.HTML(http.StatusOK, "Hello, Docker! <3")
 	})
+	
+	e.GET("/version", func(c echo.Context) error {
+		return c.JSON(http.StatusOK, struct{ Version string }{Version: "v1.0.0"})
+	})
 
 	e.GET("/health", func(c echo.Context) error {
 		return c.JSON(http.StatusOK, struct{ Status string }{Status: "OK"})
